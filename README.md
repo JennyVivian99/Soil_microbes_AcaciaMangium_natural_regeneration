@@ -8,8 +8,8 @@ Raw data for both fungi and bacteria can be found in the NCBI Short Read Archive
 Below are reported the required packages and useful references for analysis, understanding and results interpretation.
 
 ## Required packages to run the analyses:
+# For taxonomy
 ```
-*For taxonomy*
 library('remotes')
 library("dada2")
 library('BiocManager')
@@ -61,8 +61,9 @@ library("viridis")
 library("ggforce")
 library("reshape")
 library("mice")
-
-*For microeco analysis*
+```
+# For microeco analysis
+```
 library('devtools')
 library('GUniFrac') #For phylogenetic tree
 library('MiscMetabar') #For phylogenetic tree
@@ -93,8 +94,9 @@ library("randomForest")
 library("gridExtra")
 library("multiROC")
 library("ranger")
-
-*For other statistical analysis*
+```
+# For other statistical analysis
+```
 library(metagMisc)
 library(rgexf)
 library(meconetcomp)
