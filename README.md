@@ -5,7 +5,7 @@ This code is part of [INSERT PUBLICATION WHEN DONE] and was created for the anal
 Analyses are organised in separate folders for fungi and bacteria communities, with the related metadata provided. The analyses are conducted using the sequences obtained and processed through DADA2, as described in the publication.
 Raw data for both fungi and bacteria can be found in the NCBI Short Read Archive under the BioProject ID and accession number PRJNA1295595.
 
-Note: Being a sensitive data, Philippines general values of latitude and longitude were written in the public metadata: 11.6 N and 124.5 E. Nevertheless, for computational purposes, exact values were used.
+Note: Being a sensitive data, Philippines general values of latitude and longitude were written in the public BioProject: 11.6 N and 124.5 E. Nevertheless, for computational purposes, exact values were used. In this repository, the columns with latitude and longitude values were deleted.
 
 Below are reported the required packages and useful references for analysis, understanding and results interpretation.
 
