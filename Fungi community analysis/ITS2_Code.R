@@ -393,6 +393,20 @@ write.csv(t1$data_alpha, "alpha_landcover.csv", row.names = TRUE)
 # return t1$data_stat
 head(t1$data_stat)
 t1$data_stat
+
+# Calculate the exponential Shannon index, as Hill numer of order 1
+# Filter the Shannon row from your summary table
+shannon_stats <- t1$data_stat[t1$data_stat$Measure == "Shannon", ]
+# Create the new Exponential Shannon data
+# Calculate Mean using exp(H) and SD using the propagation formula: Mean * SD_shannon
+exp_shannon_stats <- shannon_stats
+exp_shannon_stats$Measure <- "Exp_Shannon"
+exp_shannon_stats$Mean <- exp(shannon_stats$Mean)
+exp_shannon_stats$SD <- exp_shannon_stats$Mean * shannon_stats$SD
+exp_shannon_stats$SE <- exp_shannon_stats$Mean * shannon_stats$SE
+# See the results
+exp_shannon_stats
+
 # Then, we test the differences among groups using Kruskal-Wallis Rank Sum Test (overall test when groups > 2),
 # Wilcoxon Rank Sum Tests (for paired groups), 
 # Dunn’s Kruskal-Wallis Multiple Comparisons (for paired groups when groups > 2) and Anova with multiple comparisons.
@@ -1825,3 +1839,4 @@ write.csv(t2$res_abund, file = "abundance_table.csv")
 t2$res_diff$
 write.csv(t2$res_diff, file = "KW_Functions_abundance_table.csv")
 t2$plot_diff_abund(add_sig = TRUE, use_number = 1:9) + ggplot2::ylab("Relative abundance (%)")+ggplot2::labs(title = "Fungi functional groups")
+
