@@ -189,14 +189,14 @@ library(indicspecies)
 # Assign this location to path_results
 path_results<-getwd()
 # Create the other objects that will be filled later
-seqtab.nochim = readRDS(paste0(path_results,"/seqtab.nochim.rds"))
+seqtab.nochim = readRDS(paste0(path_results,"/seqtab.nochim.rds")) #Set your dataset name
 taxa=readRDS(paste0(path_results,"/taxaUNITE.rds"))
 rownames(taxa) <-openssl::md5(rownames(taxa))
 # Upload the table with the metadata
-Metadata<-read.table("Fungi_Metadata.csv",h=T,sep=",",row.names = 1)
+Metadata<-read.table("Fungi_Metadata.csv",h=T,sep=",",row.names = 1) #Set your dataset name
 Metadata
 # Save the sequences. Create a DNAStringSet from the ASVs
-dna <- readDNAStringSet(paste0(path_results,"/uniqueSeqs.fasta"))
+dna <- readDNAStringSet(paste0(path_results,"/uniqueSeqs.fasta")) #Set your dataset name
 # Check the presence of the sequences in the dna file
 dna
 # Creation of Phyloseq object for the analysis
