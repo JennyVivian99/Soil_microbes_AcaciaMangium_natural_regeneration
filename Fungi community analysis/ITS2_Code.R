@@ -275,7 +275,7 @@ sample_sums(ps_MainPJ)[order(sample_sums(ps_MainPJ))]
 # The lowest number after them is 24803, which I will retain as minimum
 # To display the plots to recognize better were to cut:
 asv_before_MainPJ <- as(otu_table(ps_MainPJ), "matrix")
-out<-vegan::rarecurve(asv_before_MainPJ, step=100,lwd=2, ylab="ASV Richness", xlab="Sequence Sample Size", main="INSERT_GENE_TARGET rRNA", label=F)
+out<-vegan::rarecurve(t(asv_before_MainPJ), step=100,lwd=2, ylab="ASV Richness", xlab="Sequence Sample Size", main="INSERT_GENE_TARGET rRNA", label=F)
 # Set seed to reproduce the data, since the rarefaction will sample
 set.seed(100)
 # Rarefy the samples without replacement. 
