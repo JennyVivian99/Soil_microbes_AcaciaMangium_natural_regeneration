@@ -191,12 +191,12 @@ library(indicspecies)
 path_results<-getwd()
 #Note that this time I uploaded a CSV object (which do not need to change in ASVs as RDS object, see difference with ITS)
 #Create the other objects that will be filled later
-seqtab.nochim = readRDS(paste0(path_results,"/seqtab.nochim.rds"))
+seqtab.nochim = readRDS(paste0(path_results,"/seqtab.nochim.rds")) #Set your dataset name
 colnames(seqtab.nochim) <-md5(colnames(seqtab.nochim))
-taxa <- read.csv("Jenny_16S_taxa_DADA2.csv",header= TRUE, row.names=1) %>% as.matrix()
+taxa <- read.csv("Jenny_16S_taxa_DADA2.csv",header= TRUE, row.names=1) %>% as.matrix() #Set your dataset name
 
 #Upload the table with the metadata
-Metadata<-read.table("Bacteria_Metadata.csv",h=T,sep=",", row.names = 1)
+Metadata<-read.table("Bacteria_Metadata.csv",h=T,sep=",", row.names = 1) #Set your dataset name
 #Save the sequences. Create a DNAStringSet from the ASVs
 dna <- readDNAStringSet(paste0(path_results,"/uniqueSeqs.fasta"))
 #Check the presence of the sequences in the dna file
@@ -271,7 +271,7 @@ sample_sums(ps_MainPJ)[order(sample_sums(ps_MainPJ))]
 # The lowest number after them is 34956, which I will retain as minimum
 # To display the plots to recognize better were to cut:
 asv_before_MainPJ <- as(otu_table(ps_MainPJ), "matrix")
-out<-vegan::rarecurve(asv_before_MainPJ, step=100,lwd=2, ylab="ASV Richness", xlab="Sequence Sample Size", main="INSERT_GENE_TARGET rRNA", label=F)
+out<-vegan::rarecurve(t(asv_before_MainPJ), step=100,lwd=2, ylab="ASV Richness", xlab="Sequence Sample Size", main="INSERT_GENE_TARGET rRNA", label=F)
 # Set seed to reproduce the data, since the rarefaction will sample
 set.seed(100)
 # Rarefy the samples without replacement. 
